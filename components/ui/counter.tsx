@@ -3,7 +3,7 @@
 // Import necessary modules and components
 import React, { useState, useEffect } from 'react';
 import { Users, Building, Star } from "lucide-react";  // Icons for the stats
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";  // Card components
+import { Card, CardHeader, CardDescription, CardTitle } from "@/components/ui/card";  // Card components
 
 interface CounterProps {
   end: number;
