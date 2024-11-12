@@ -296,7 +296,7 @@ export default function HomePage() {
             ))}
           </div>
           <div className="text-center mt-8">
-            <p className="text-gray-600 mb-4">Don't have medical aid? We offer affordable options for those without coverage.</p>
+            <p className="text-gray-600 mb-4">Don&apos;t have medical aid? We offer affordable options for those without coverage.</p>
             <Button variant="outline">
               <CreditCard className="mr-2 h-4 w-4" />
               Learn About Our Payment Options
@@ -423,7 +423,7 @@ export default function HomePage() {
             <Card className="bg-white text-gray-900">
               <CardHeader>
                 <CardTitle>Book an Appointment</CardTitle>
-                <CardDescription>Fill out the form below and we'll get back to you</CardDescription>
+                <CardDescription>Fill out the form below and we&apos;ll get back to you</CardDescription>
               </CardHeader>
               <CardContent>
                 <form className="space-y-4">
