@@ -14,7 +14,15 @@ export function Navigation() {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2">
-              <Image src="/images/logoo.jpg" alt="Logo" width={110} height={60} className="rounded-full" />
+              <Image 
+                src="/images/logoo.jpg" 
+                alt="Logo" 
+                width={110} 
+                height={60} 
+                className="rounded-full" 
+                priority // Ensures faster loading
+                unoptimized // Optional: Bypasses Next.js optimization if needed
+              />
               <span className="text-xl font-bold">Eluthandweni Clinic</span>
             </Link>
           </div>

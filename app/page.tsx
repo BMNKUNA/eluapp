@@ -62,7 +62,7 @@ export default function HomePage() {
             <Card className="bg-white/90 backdrop-blur-lg border-none shadow-lg">
               <CardHeader>
                 <CardTitle className="flex items-baseline">
-                  <Users className="w-8 h-8 mr-2 bg-pink-800" />
+                <Users className="w-8 h-8 mr-2 text-pink-800" />
                   <Counter end={20000} duration={2} />
                 </CardTitle>
                 <CardDescription className="text-lg">Patients Treated Over The Years</CardDescription>
@@ -71,8 +71,8 @@ export default function HomePage() {
             <Card className="bg-white/90 backdrop-blur-lg border-none shadow-lg">
               <CardHeader>
                 <CardTitle className="flex items-baseline">
-                  <Ambulance className="w-8 h-8 mr-2 bg-pink-800" />
-                  <span className="text-4xl font-bold bg-pink-800">24/7</span>
+                  <Ambulance className="w-8 h-8 mr-2 text-pink-800" />
+                  <span className="text-4xl font-bold text-pink-800">24/7</span>
                 </CardTitle>
                 <CardDescription className="text-lg">Emergency Services Available</CardDescription>
               </CardHeader>
@@ -80,7 +80,7 @@ export default function HomePage() {
             <Card className="bg-white/90 backdrop-blur-lg border-none shadow-lg">
               <CardHeader>
                 <CardTitle className="flex items-baseline">
-                  <Building className="w-8 h-8 mr-2 bg-pink-800" />
+                  <Building className="w-8 h-8 mr-2 text-pink-800" />
                   <Counter end={33} duration={4} />
                 </CardTitle>
                 <CardDescription className="text-lg">Years Serving the Community</CardDescription>
@@ -89,7 +89,7 @@ export default function HomePage() {
             <Card className="bg-white/90 backdrop-blur-lg border-none shadow-lg">
               <CardHeader>
                 <CardTitle className="flex items-baseline">
-                  <Star className="w-8 h-8 mr-2 bg-pink-800" />
+                  <Star className="w-8 h-8 mr-2 text-pink-800" />
                   <Counter end={4.9} duration={5} />
                 </CardTitle>
                 <CardDescription className="text-lg">Patient Satisfaction Rating</CardDescription>
