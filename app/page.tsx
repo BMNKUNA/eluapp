@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/card"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
-import Statistics from "@/components/Statistics"
+import Statistics from "@/components/Statistics";
 
 export default function HomePage() {
   return (
