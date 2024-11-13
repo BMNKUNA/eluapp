@@ -15,7 +15,7 @@ export function Navigation() {
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2">
               <Image 
-                src="/images/logoo.jpg" 
+                src="/images/logot.png" 
                 alt="Logo" 
                 width={110} 
                 height={60} 
@@ -55,7 +55,7 @@ export function Navigation() {
           <div className="flex items-center space-x-4">
             <Link
               href="/login"
-              className={`text-gray-600 hover:text-pink-800 transition-colors ${pathname === '/login' ? 'bg-pink-800 text-white' : ''} px-3 py-2 rounded-md`}
+              className={`text-gray-600 hover:text-pink-800 transition-colors ${pathname === '/' ? 'bg-pink-800 text-white' : ''} px-3 py-2 rounded-md`}
             >
               Login
             </Link>
