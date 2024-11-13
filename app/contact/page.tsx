@@ -24,11 +24,11 @@ export default function ContactPage() {
                 <div className="space-y-6">
                   <div className="flex items-center space-x-4">
                     <Phone className="h-6 w-6" />
-                    <span>+27 (0) 11 123 4567</span>
+                    <span>+27 (0) 11 382 0466</span>
                   </div>
                   <div className="flex items-center space-x-4">
                     <MapPin className="h-6 w-6" />
-                    <span>123 Mandela Street, Johannesburg, 2000</span>
+                    <span>1951 Ikhethini Str, Mailula Park, Vosloorus, South Africa</span>
                   </div>
                   <div className="flex items-center space-x-4">
                     <Clock className="h-6 w-6" />
