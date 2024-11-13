@@ -4,9 +4,8 @@ import { useEffect } from 'react';
 
 export default function TawkToChat() {
   useEffect(() => {
-    // Attach Tawk_API to the global window object
-    (window as any).Tawk_API = (window as any).Tawk_API || {};
-    (window as any).Tawk_LoadStart = new Date();
+    window.Tawk_API = window.Tawk_API || {};
+    window.Tawk_LoadStart = new Date();
 
     (function () {
       const s1 = document.createElement("script");
