@@ -1,12 +1,12 @@
-"use client"; // Add this directive at the top
+"use client";
 
 import { useEffect } from 'react';
 
 export default function TawkToChat() {
   useEffect(() => {
-    // Define Tawk_API as an empty object without referencing itself
-    const Tawk_API: any = {};
-    const Tawk_LoadStart = new Date();
+    // Attach Tawk_API to the global window object
+    (window as any).Tawk_API = (window as any).Tawk_API || {};
+    (window as any).Tawk_LoadStart = new Date();
 
     (function () {
       const s1 = document.createElement("script");

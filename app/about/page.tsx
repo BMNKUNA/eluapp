@@ -1,15 +1,6 @@
 import Image from "next/image";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
-import { Star } from 'lucide-react';
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import TawkToChat from "@/components/TawkToChat"; // Import TawkToChat
 
 export default function AboutPage() {
