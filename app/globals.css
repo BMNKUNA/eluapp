@@ -179,7 +179,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: hsl(var(--primary));
+  background-color: #9b2c2c;  /* Equivalent to bg-pink-800 */
   border-radius: 6px;
   border: 3px solid hsl(var(--background));
 }
@@ -192,6 +192,6 @@
 
 /* Custom selection color */
 ::selection {
-  background-color: hsl(var(--primary));
+  background-color: #9b2c2c; /* Matching bg-pink-800 */
   color: hsl(var(--primary-foreground));
 }
