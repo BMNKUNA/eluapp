@@ -1,4 +1,4 @@
-import { ArrowRight, Calendar, Clock, MapPin, Phone, Star, Users, Ambulance, Building } from 'lucide-react'
+import { ArrowRight, Star, Users, Ambulance, Building } from 'lucide-react'
 import Image from "next/image"
 import Link from "next/link"
 import { Counter } from "@/components/ui/counter"
