@@ -40,12 +40,6 @@ export function Navigation() {
               Services
             </Link>
             <Link
-              href="/staff"
-              className={`text-gray-600 hover:text-pink-800 transition-colors ${pathname === '/staff' ? 'bg-pink-800 text-white' : ''} px-3 py-2 rounded-md`}
-            >
-              Our Staff
-            </Link>
-            <Link
               href="/about"
               className={`text-gray-600 hover:text-pink-800 transition-colors ${pathname === '/about' ? 'bg-pink-800 text-white' : ''} px-3 py-2 rounded-md`}
             >
@@ -59,11 +53,14 @@ export function Navigation() {
             </Link>
           </div>
           <div className="flex items-center space-x-4">
-            <Link href="/login">
-              <Button variant="ghost">Login</Button>
+            <Link
+              href="/login"
+              className={`text-gray-600 hover:text-pink-800 transition-colors ${pathname === '/login' ? 'bg-pink-800 text-white' : ''} px-3 py-2 rounded-md`}
+            >
+              Login
             </Link>
-            <Link href="/appointment">
-              <Button className="bg-pink-800 hover:bg-pink-700">Book Appointment</Button>
+            <Link href="/contact">
+              <Button className="bg-pink-800 hover:bg-pink-700">Enquire</Button>
             </Link>
           </div>
         </div>
