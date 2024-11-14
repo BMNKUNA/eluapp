@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -84,7 +84,7 @@
 
 /* Custom styles for Eluthandweni Clinic */
 .hero-gradient {
-  background: linear-gradient(135deg, hsl(142.1, 76.2%, 36.3%) 0%, hsl(142.1, 76.2%, 46.3%) 100%);
+  background: linear-gradient(135deg, hsl(323, 34%, 66%) 0%, hsl(302, 63%, 70%) 100%);
 }
 
 .card-hover {
@@ -104,24 +104,23 @@
   backdrop-filter: blur(8px);
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+/* Ticker Animation for Affiliates and Partners */
+@keyframes ticker {
+  0% {
+    transform: translateX(0); /* Start from the right */
+  }
+  100% {
+    transform: translateX(-50%); /* Move to the left */
+  }
 }
 
-@keyframes slideInFromBottom {
-  from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+.ticker-content {
+  display: inline-flex;
+  animation: ticker 25s linear infinite; /* Adjusted to a slower scroll */
+  will-change: transform; /* Optimization for performance */
 }
 
-.animate-fadeIn {
-  animation: fadeIn 0.5s ease-out;
-}
 
-.animate-slideIn {
-  animation: slideInFromBottom 0.5s ease-out;
-}
 
 /* Responsive typography */
 @media (max-width: 640px) {
@@ -165,7 +164,7 @@
     font-size: 12pt;
     line-height: 1.5;
     color: #000;
-    background: #fff;
+    background: #8e8787;
   }
 }
 
