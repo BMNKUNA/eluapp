@@ -1,5 +1,3 @@
-'use client'
-
 import { useState, useEffect } from 'react'
 import Image from "next/image"
 import { motion, AnimatePresence } from 'framer-motion'
@@ -71,7 +69,7 @@ export default function AboutPage() {
               <div>
                 <h2 className="text-2xl font-bold mb-4">Our History</h2>
                 <p className="text-gray-600 mb-6">
-                  Eluthandweni Clinic was founded in 1989 by Nurse Nonina Dube-Diphoko, known as Mam' Dolly, during a time of great need...
+                  Eluthandweni Clinic was founded in 1989 by Nurse Nonina Dube-Diphoko, known as Mam&apos; Dolly, during a time of great need...
                 </p>
                 <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
                 <p className="text-gray-600 mb-6">
@@ -91,15 +89,15 @@ export default function AboutPage() {
             </div>
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <h3 className="text-2xl font-bold mb-4">Mam' Dolly's Legacy</h3>
+                <h3 className="text-2xl font-bold mb-4">Mam&apos; Dolly&apos;s Legacy</h3>
                 <p className="text-gray-600 mb-6">
-                  Mam' Dolly was a beacon of hope and a tireless advocate for her community. With over 50 years of nursing experience...
+                  Mam&apos; Dolly was a beacon of hope and a tireless advocate for her community. With over 50 years of nursing experience...
                 </p>
                 <p className="text-gray-600 mb-6">
-                  Her compassion, skill, and unwavering commitment earned her the nickname "the Florence Nightingale of Vosloorus."
+                  Her compassion, skill, and unwavering commitment earned her the nickname &quot;the Florence Nightingale of Vosloorus.&quot;
                 </p>
                 <p className="text-gray-600">
-                  Though Mam' Dolly passed away in 2022, her spirit lives on in every aspect of our clinic's operations and in the hearts of the community.
+                  Though Mam&apos; Dolly passed away in 2022, her spirit lives on in every aspect of our clinic&apos;s operations and in the hearts of the community.
                 </p>
               </div>
             </div>
@@ -177,7 +175,7 @@ export default function AboutPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Commitment to the Community</h2>
-              <p className="text-xl text-gray-600">Continuing Mam' Dolly's legacy of care and compassion</p>
+              <p className="text-xl text-gray-600">Continuing Mam&apos; Dolly&apos;s legacy of care and compassion</p>
             </div>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center p-8 bg-white rounded-lg shadow-md">
