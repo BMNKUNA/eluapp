@@ -33,10 +33,10 @@ export default function HomePage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Quality Healthcare for All South Africans
+              Quality Healthcare for All
             </h1>
             <p className="text-xl text-white/90 mb-8">
-              Eluthandweni Clinic is committed to providing accessible, compassionate, and expert healthcare services to our community in South Africa.
+              Eluthandweni Clinic is committed to providing accessible, compassionate, and expert healthcare services to our communities around Johannesburg.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/appointment">
@@ -99,29 +99,29 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Latest News Section */}
+      {/* Latest News & Events Section */}
       <section id="news" className="py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Latest News</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Latest News & Events</h2>
             <p className="text-xl text-gray-600">Stay informed about health topics and clinic updates</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                title: "New Pediatric Wing Opening Soon",
-                date: "June 15, 2024",
-                excerpt: "We're excited to announce the opening of our new pediatric wing, enhancing our ability to care for young patients.",
+                title: "Cancer Awareness Day Special",
+                date: "Oct 31, 2024",
+                excerpt: "We're excited to announce our cancer awareness day special, at our alberton Branch.",
               },
               {
-                title: "COVID-19 Vaccination Drive",
-                date: "June 10, 2024",
-                excerpt: "Join our upcoming COVID-19 vaccination drive. Protect yourself and your community.",
+                title: "Free Circumcision",
+                date: "Sept 19, 2024",
+                excerpt: "Age 10 years and Older, Free Male Circumcision Services Available From 21 September 2024 till 4 October 2024 @ Our Facility Clinic in Primrose Germiston.",
               },
               {
-                title: "Health Tips for Winter",
-                date: "June 5, 2024",
-                excerpt: "Learn how to stay healthy during the cold winter months with these expert tips from our doctors.",
+                title: "Cancer 8km walk",
+                date: "Aug 26, 2024",
+                excerpt: "A walk is always more enjoyable with a companion. The time is approaching &ndash; let&apos;s get our walking gear ready!",
               },
             ].map((news, index) => (
               <Card key={index} className="flex flex-col">
@@ -142,7 +142,7 @@ export default function HomePage() {
           </div>
           <div className="text-center mt-8">
             <Button className="bg-pink-800 hover:bg-pink-700">
-              View All News
+              View All News & Events
             </Button>
           </div>
         </div>

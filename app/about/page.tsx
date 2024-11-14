@@ -20,7 +20,7 @@ export default function AboutPage() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <Image
-                  src="/images/clinic-exterior.jpg"
+                  src="/images/clinic-exterior.png"
                   alt="Eluthandweni Clinic Exterior"
                   width={600}
                   height={400}
@@ -30,7 +30,7 @@ export default function AboutPage() {
               <div>
                 <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
                 <p className="text-gray-600 mb-6">
-                  At Eluthandweni Clinic, our mission is to provide accessible, high-quality healthcare services to all members of our community...
+                  At Eluthandweni Clinic, our mission is to provide accessible, high-quality healthcare services to all members of our communities around Johannesburg and beyond.
                 </p>
                 {/* Rest of the content */}
               </div>
