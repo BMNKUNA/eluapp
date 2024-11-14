@@ -9,11 +9,15 @@ export function Footer() {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <div className="w-8 h-8 bg-pink-800 rounded-full" />
-              <span className="text-xl font-bold">Eluthandweni Clinic</span>
+              <span className="text-xl font-bold">Accepted Medical Aids</span>
             </div>
-            <p className="text-gray-400">
-              Providing quality healthcare services for all.
+            <p className="text-gray-400 hover:text-white">
+              Bonitas Medical Aid
             </p>
+            <p className="text-gray-400 hover:text-white">Gems Medical Aid</p>
+            <p className="text-gray-400 hover:text-white">MedShield</p>
+            <p className="text-gray-400 hover:text-white">Discovery Health</p>
+            <p className="text-gray-400 hover:text-white">Momentum Health</p>
           </div>
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
