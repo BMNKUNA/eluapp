@@ -1,4 +1,4 @@
-'use client'
+'use client'; // Add this to mark the component as client-side
 
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { Button } from "@/components/ui/button"
 
 export function Navigation() {
-  const pathname = usePathname() // Get the current page path
+  const pathname = usePathname(); // Get the current page path
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b">
@@ -14,14 +14,14 @@ export function Navigation() {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2">
+              {/* Updated with Image component for logo.png */}
               <Image 
-                src="/images/logot.png" 
-                alt="Logo" 
-                width={110} 
-                height={60} 
-                className="rounded-full" 
+                src="/images/logo.png" // Update the source to the new image path
+                alt="Eluthandweni Clinic Logo" 
+                width={110} // Adjust the width as needed
+                height={60} // Adjust the height as needed
+                className="rounded-full" // Optional: apply styling such as rounding
                 priority // Ensures faster loading
-                unoptimized // Optional: Bypasses Next.js optimization if needed
               />
               <span className="text-xl font-bold">Eluthandweni Clinic</span>
             </Link>
@@ -66,5 +66,5 @@ export function Navigation() {
         </div>
       </div>
     </nav>
-  )
+  );
 }

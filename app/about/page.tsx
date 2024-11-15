@@ -160,7 +160,7 @@ export default function AboutPage() {
               </div>
               <div>
                 <Image
-                  src="/images/clinic-facilities.png"
+                  src="/images/clinic-facilities.jpg"
                   alt="Eluthandweni Clinic Facilities"
                   width={600}
                   height={400}

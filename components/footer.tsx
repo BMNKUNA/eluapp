@@ -85,19 +85,27 @@ export function Footer() {
             <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
             <ul className="space-y-2">
               <li className="flex items-center space-x-2">
-                <FaFacebook size={24} className="text-gray-400 hover:text-white" />
+                <Link href="https://www.facebook.com/profile.php?id=100046969886329" passHref>
+                  <FaFacebook size={24} className="text-gray-400 hover:text-white" />
+                </Link>
                 <span className="text-gray-400 hover:text-white">Facebook</span>
               </li>
               <li className="flex items-center space-x-2">
-                <FaTwitter size={24} className="text-gray-400 hover:text-white" />
+                <Link href="#" passHref>
+                  <FaTwitter size={24} className="text-gray-400 hover:text-white" />
+                </Link>
                 <span className="text-gray-400 hover:text-white">Twitter</span>
               </li>
               <li className="flex items-center space-x-2">
-                <FaInstagram size={24} className="text-gray-400 hover:text-white" />
+                <Link href="https://www.instagram.com/eluthandweni_maternity_clinic/?hl=en-gb" passHref>
+                  <FaInstagram size={24} className="text-gray-400 hover:text-white" />
+                </Link>
                 <span className="text-gray-400 hover:text-white">Instagram</span>
               </li>
               <li className="flex items-center space-x-2">
-                <FaLinkedin size={24} className="text-gray-400 hover:text-white" />
+                <Link href="#" passHref>
+                  <FaLinkedin size={24} className="text-gray-400 hover:text-white" />
+                </Link>
                 <span className="text-gray-400 hover:text-white">LinkedIn</span>
               </li>
             </ul>
