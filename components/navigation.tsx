@@ -1,12 +1,13 @@
-'use client'; // Add this to mark the component as client-side
+'use client'
 
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Button } from "@/components/ui/button"
+import { HamburgerMenu } from "@/components/HamburgerMenu"
 
 export function Navigation() {
-  const pathname = usePathname(); // Get the current page path
+  const pathname = usePathname()
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b">
@@ -14,14 +15,13 @@ export function Navigation() {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2">
-              {/* Updated with Image component for logo.png */}
               <Image 
-                src="/images/logo.png" // Update the source to the new image path
+                src="/images/logo.png"
                 alt="Eluthandweni Clinic Logo" 
-                width={110} // Adjust the width as needed
-                height={60} // Adjust the height as needed
-                className="rounded-full" // Optional: apply styling such as rounding
-                priority // Ensures faster loading
+                width={110}
+                height={60}
+                className="rounded-full"
+                priority
               />
               <span className="text-xl font-bold">Eluthandweni Clinic</span>
             </Link>
@@ -52,10 +52,10 @@ export function Navigation() {
               Contact
             </Link>
           </div>
-          <div className="flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-4">
             <Link
               href="/login"
-              className={`text-gray-600 hover:text-pink-800 transition-colors ${pathname === '/' ? 'bg-pink-800 text-white' : ''} px-3 py-2 rounded-md`}
+              className={`text-gray-600 hover:text-pink-800 transition-colors ${pathname === '/login' ? 'bg-pink-800 text-white' : ''} px-3 py-2 rounded-md`}
             >
               Login
             </Link>
@@ -63,8 +63,9 @@ export function Navigation() {
               <Button className="bg-pink-800 hover:bg-pink-700">Enquire</Button>
             </Link>
           </div>
+          <HamburgerMenu />
         </div>
       </div>
     </nav>
-  );
+  )
 }
