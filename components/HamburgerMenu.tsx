@@ -6,6 +6,12 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from "@/components/ui/button"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
 export function HamburgerMenu() {
   const [isOpen, setIsOpen] = useState(false)
@@ -139,18 +145,19 @@ export function HamburgerMenu() {
                 >
                   Contact
                 </Link>
-                <Link
-                  href="/login"
-                  className={`text-xl font-semibold ${
-                    pathname === '/login' ? 'text-pink-800' : 'text-gray-600'
-                  }`}
-                >
-                  Login
-                </Link>
+                <Accordion type="single" collapsible className="w-full">
+                  <AccordionItem value="login">
+                    <AccordionTrigger>Login</AccordionTrigger>
+                    <AccordionContent>
+                      <Link href="/login/staff" className="block py-2">Staff Login</Link>
+                      <Link href="/login/patient" className="block py-2">Patient Login</Link>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
               </nav>
               <div className="mt-auto">
-                <Link href="/contact">
-                  <Button className="w-full bg-pink-800 hover:bg-pink-700 text-white">Enquire</Button>
+                <Link href="/register">
+                  <Button className="w-full bg-pink-800 hover:bg-pink-700 text-white">Register</Button>
                 </Link>
               </div>
             </div>
