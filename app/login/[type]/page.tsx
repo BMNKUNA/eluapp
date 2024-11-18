@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { useRouter } from 'next/navigation'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -10,7 +9,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 export default function LoginPage({ params }: { params: { type: string } }) {
   const [id, setId] = useState('')
   const [password, setPassword] = useState('')
-  const router = useRouter()
   const isStaff = params.type === 'staff'
 
   const handleLogin = (e: React.FormEvent) => {
