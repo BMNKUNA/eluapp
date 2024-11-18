@@ -1,5 +1,4 @@
 import { Menu } from '@headlessui/react';
-import { Fragment } from 'react';
 import { motion } from 'framer-motion';
 
 export const DropdownMenu = ({ children }: { children: React.ReactNode }) => {
