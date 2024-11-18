@@ -1,28 +1,54 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
-export default function LoginPage({ params }: { params: { type: string } }) {
-  const [id, setId] = useState('')
-  const [password, setPassword] = useState('')
-  const isStaff = params.type === 'staff'
+type LoginPageProps = {
+  params: { type?: string }
+}
 
-  const handleLogin = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle login logic here
-    console.log(`${isStaff ? 'Staff' : 'Patient'} login:`, id, password)
-    // Redirect to appropriate dashboard or show error
-  }
+export default function LoginPage({ params }: LoginPageProps) {
+  const [id, setId] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
+  const isStaff = params?.type === 'staff'; // Determine if the login is for staff
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError(null); // Reset error on each login attempt
+
+    if (!id || !password) {
+      setError('Both fields are required');
+      return;
+    }
+
+    try {
+      // Simulate a successful login logic (API call could go here)
+      console.log(`${isStaff ? 'Staff' : 'Patient'} login:`, id, password);
+      
+      // Simulate an API call delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      // Redirect based on user type (staff or patient)
+      router.push(isStaff ? '/staff-dashboard' : '/patient-dashboard');
+    } catch (error) {
+      console.error('Login error:', error);
+      setError('Login failed. Please try again.');
+    }
+  };
 
   return (
     <div className="container mx-auto px-4 py-8">
       <Card className="w-full max-w-md mx-auto">
         <CardHeader>
-          <CardTitle>{isStaff ? 'Staff Login' : 'Patient Login'}</CardTitle>
+          <CardTitle className="text-2xl font-bold text-pink-800">
+            {isStaff ? 'Staff Login' : 'Patient Login'}
+          </CardTitle>
           <CardDescription>
             {isStaff
               ? 'Enter your staff credentials to access the system.'
@@ -30,35 +56,43 @@ export default function LoginPage({ params }: { params: { type: string } }) {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleLogin}>
-            <div className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="id">{isStaff ? 'Staff ID' : 'Patient ID'}</Label>
-                <Input
-                  id="id"
-                  type="text"
-                  value={id}
-                  onChange={(e) => setId(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="password">Password</Label>
-                <Input
-                  id="password"
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                />
-              </div>
-              <Button type="submit" className="w-full">
-                Login
-              </Button>
+          <form onSubmit={handleLogin} className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="id" className="text-gray-700">
+                {isStaff ? 'Staff ID' : 'Patient ID'}
+              </Label>
+              <Input
+                id="id"
+                type="text"
+                value={id}
+                onChange={(e) => setId(e.target.value)}
+                required
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
+              />
             </div>
+            <div className="space-y-2">
+              <Label htmlFor="password" className="text-gray-700">Password</Label>
+              <Input
+                id="password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"
+              />
+            </div>
+            {error && (
+              <p className="text-red-500 text-sm">{error}</p>
+            )}
+            <Button 
+              type="submit" 
+              className="w-full bg-pink-800 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            >
+              Login
+            </Button>
           </form>
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }
