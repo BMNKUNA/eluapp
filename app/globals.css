@@ -129,3 +129,27 @@
     background-color: hsl(var(--input));
   }
 }
+@layer utilities {
+  @keyframes ticker {
+    0% {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    25% {
+      opacity: 1;
+    }
+    75% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+  }
+
+  .animate-ticker {
+    display: flex;
+    animation: ticker 20s linear infinite;
+    will-change: transform, opacity;
+  }
+}
