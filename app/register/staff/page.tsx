@@ -14,18 +14,30 @@ export default function StaffRegisterPage() {
   const [password, setPassword] = useState('')
   const [otp, setOtp] = useState('')
   const [otpSent, setOtpSent] = useState(false)
+  const [error, setError] = useState<string | null>(null)
   const router = useRouter()
 
+  // Handle OTP sending
   const handleSendOtp = (e: React.FormEvent) => {
     e.preventDefault()
-    // Logic to send OTP to the provided email
+    if (!email) {
+      setError('Please enter a valid email address.')
+      return
+    }
+    setError(null)
     console.log('Sending OTP to:', email)
     setOtpSent(true)
   }
 
+  // Handle staff registration
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault()
-    // Logic to verify OTP and register staff
+    if (!otp) {
+      setError('Please enter the OTP sent to your email.')
+      return
+    }
+    setError(null)
+    // Logic to verify OTP and register the staff
     console.log('Registering staff:', { name, email, staffId, password, otp })
     // If successful, redirect to login page or show success message
     router.push('/login/staff')
@@ -93,6 +105,7 @@ export default function StaffRegisterPage() {
                   />
                 </div>
               )}
+              {error && <p className="text-red-500 text-sm">{error}</p>}
               <Button type="submit" className="w-full bg-pink-800 hover:bg-pink-700">
                 {otpSent ? 'Register' : 'Send OTP'}
               </Button>

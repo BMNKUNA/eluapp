@@ -8,19 +8,26 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 type LoginPageProps = {
-  params: { type?: string }
-}
+  params: Promise<{
+    type?: string;
+  }>;
+};
 
 export default function LoginPage({ params }: LoginPageProps) {
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
-  const isStaff = params?.type === 'staff'; // Determine if the login is for staff
+
+  // Extract the 'type' property from the resolved promise
+  const [resolvedParams, setResolvedParams] = useState<{ type?: string }>({});
+  params.then(p => setResolvedParams(p));
+
+  const isStaff = resolvedParams?.type === 'staff';
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError(null); // Reset error on each login attempt
+    setError(null);
 
     if (!id || !password) {
       setError('Both fields are required');
@@ -28,13 +35,14 @@ export default function LoginPage({ params }: LoginPageProps) {
     }
 
     try {
-      // Simulate a successful login logic (API call could go here)
+      // Here you would typically make an API call to authenticate the user
+      // For now, we'll just simulate a successful login
       console.log(`${isStaff ? 'Staff' : 'Patient'} login:`, id, password);
       
       // Simulate an API call delay
       await new Promise(resolve => setTimeout(resolve, 1000));
 
-      // Redirect based on user type (staff or patient)
+      // Redirect based on user type
       router.push(isStaff ? '/staff-dashboard' : '/patient-dashboard');
     } catch (error) {
       console.error('Login error:', error);

@@ -13,13 +13,23 @@ export default function PatientRegisterPage() {
   const [phone, setPhone] = useState('')
   const [dateOfBirth, setDateOfBirth] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState<string | null>(null)
   const router = useRouter()
 
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault()
+    
+    // Simple validation
+    if (!name || !email || !phone || !dateOfBirth || !password) {
+      setError('Please fill out all fields.')
+      return
+    }
+
+    setError(null)
     // Logic to register patient
     console.log('Registering patient:', { name, email, phone, dateOfBirth, password })
-    // If successful, redirect to login page or show success message
+    
+    // If successful, redirect to login page
     router.push('/login/patient')
   }
 
@@ -83,6 +93,7 @@ export default function PatientRegisterPage() {
                   required
                 />
               </div>
+              {error && <p className="text-red-500 text-sm">{error}</p>}
               <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
                 Register
               </Button>
