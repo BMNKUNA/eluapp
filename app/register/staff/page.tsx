@@ -1,47 +1,47 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { registerStaff } from '@/services/api';
 
 export default function StaffRegisterPage() {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [staffId, setStaffId] = useState('')
-  const [password, setPassword] = useState('')
-  const [otp, setOtp] = useState('')
-  const [otpSent, setOtpSent] = useState(false)
-  const [error, setError] = useState<string | null>(null)
-  const router = useRouter()
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [staffId, setStaffId] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
 
-  // Handle OTP sending
-  const handleSendOtp = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!email) {
-      setError('Please enter a valid email address.')
-      return
-    }
-    setError(null)
-    console.log('Sending OTP to:', email)
-    setOtpSent(true)
-  }
+  const handleRegister = async (e: React.FormEvent) => {
+    e.preventDefault();
 
-  // Handle staff registration
-  const handleRegister = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!otp) {
-      setError('Please enter the OTP sent to your email.')
-      return
+    if (!name || !email || !staffId || !password) {
+      setError('Please fill out all fields.');
+      return;
     }
-    setError(null)
-    // Logic to verify OTP and register the staff
-    console.log('Registering staff:', { name, email, staffId, password, otp })
-    // If successful, redirect to login page or show success message
-    router.push('/login/staff')
-  }
+
+    setError(null);
+
+    try {
+      await registerStaff({
+        user: { username: email, email, password },
+        staff_id: staffId,
+      });
+      router.push('/login/staff');
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        console.error('Registration Error:', err.message);
+        setError('Registration failed. Please try again.');
+      } else {
+        console.error('Unexpected Error:', err);
+        setError('An unexpected error occurred.');
+      }
+    }
+  };
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -51,7 +51,7 @@ export default function StaffRegisterPage() {
           <CardDescription>Register as a new staff member</CardDescription>
         </CardHeader>
         <CardContent>
-          <form onSubmit={otpSent ? handleRegister : handleSendOtp}>
+          <form onSubmit={handleRegister}>
             <div className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="name">Full Name</Label>
@@ -93,26 +93,14 @@ export default function StaffRegisterPage() {
                   required
                 />
               </div>
-              {otpSent && (
-                <div className="space-y-2">
-                  <Label htmlFor="otp">OTP</Label>
-                  <Input
-                    id="otp"
-                    type="text"
-                    value={otp}
-                    onChange={(e) => setOtp(e.target.value)}
-                    required
-                  />
-                </div>
-              )}
               {error && <p className="text-red-500 text-sm">{error}</p>}
               <Button type="submit" className="w-full bg-pink-800 hover:bg-pink-700">
-                {otpSent ? 'Register' : 'Send OTP'}
+                Register
               </Button>
             </div>
           </form>
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }

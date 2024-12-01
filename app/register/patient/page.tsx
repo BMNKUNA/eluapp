@@ -1,37 +1,49 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { registerPatient } from '@/services/api';
 
 export default function PatientRegisterPage() {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [phone, setPhone] = useState('')
-  const [dateOfBirth, setDateOfBirth] = useState('')
-  const [password, setPassword] = useState('')
-  const [error, setError] = useState<string | null>(null)
-  const router = useRouter()
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [dateOfBirth, setDateOfBirth] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
 
-  const handleRegister = (e: React.FormEvent) => {
-    e.preventDefault()
-    
-    // Simple validation
+  const handleRegister = async (e: React.FormEvent) => {
+    e.preventDefault();
+
     if (!name || !email || !phone || !dateOfBirth || !password) {
-      setError('Please fill out all fields.')
-      return
+      setError('Please fill out all fields.');
+      return;
     }
 
-    setError(null)
-    // Logic to register patient
-    console.log('Registering patient:', { name, email, phone, dateOfBirth, password })
-    
-    // If successful, redirect to login page
-    router.push('/login/patient')
-  }
+    setError(null);
+
+    try {
+      await registerPatient({
+        user: { username: email, email, password },
+        date_of_birth: dateOfBirth,
+        phone_number: phone,
+      });
+      router.push('/login/patient');
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        console.error('Registration Error:', err.message);
+        setError('Registration failed. Please try again.');
+      } else {
+        console.error('Unexpected Error:', err);
+        setError('An unexpected error occurred.');
+      }
+    }
+  };
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -102,5 +114,5 @@ export default function PatientRegisterPage() {
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }
